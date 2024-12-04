@@ -40,25 +40,23 @@ public class DayThree {
     }
 
     public static void conditionalMultiplier() {
-        String filePath = "DayThree.txt"; // Replace with your file path
+        String filePath = "DayThree.txt";
         StringBuilder fileContent = new StringBuilder();
 
         // Read the file content
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
-                fileContent.append(line).append("\n"); // Append lines to a single string
+                fileContent.append(line).append("\n");
             }
         } catch (IOException e) {
             e.printStackTrace();
             return;
         }
 
-        // Corrupted memory content
         String corruptedMemory = fileContent.toString();
 
-        // Regular expressions
-        String mulRegex = "mul\\((\\d{1,3}),(\\d{1,3})\\)"; // Valid mul instruction
+        String mulRegex = "mul\\((\\d{1,3}),(\\d{1,3})\\)";
         String toggleRegex = "do\\(\\)|don't\\(\\)"; // Toggle enable/disable
 
         // Pattern for matching instructions
